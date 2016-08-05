@@ -1,0 +1,13 @@
+# Vagrant cache
+.vagrant/
+
+# Ansible
+*.retry
+ansible/roles/
+
+# OS and IDE metadata
+.DS_Store
+.directory
+.idea/
+.project/
+.bundle/

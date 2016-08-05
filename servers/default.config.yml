@@ -1,0 +1,52 @@
+---
+sites: []
+
+# Vagrant options.
+vagrant_box: geerlingguy/ubuntu1604
+vagrant_user: vagrant
+vagrant_hostname: drupaldev.local
+vagrant_ip: 192.168.50.5
+vagrant_memory: 1024
+vagrant_synced_folders: []
+
+# Apache options.
+apache_vhosts: []
+apache_remove_default_vhost: true
+apache_mods_enabled:
+  - expires.load
+  - ssl.load
+  - rewrite.load
+  - proxy.load
+  - proxy_fcgi.load
+
+# MySQL options.
+mysql_databases: []
+mysql_users: []
+mysql_root_password: root
+mysql_slow_query_log_enabled: true
+mysql_slow_query_time: 2
+mysql_wait_timeout: 300
+
+# PHP options.
+php_version: "7.0"
+php_memory_limit: "1024M"
+php_display_errors: "On"
+php_display_startup_errors: "On"
+php_realpath_cache_size: "1024K"
+php_sendmail_path: "/usr/sbin/ssmtp -t"
+php_opcache_enabled_in_ini: true
+php_opcache_memory_consumption: "192"
+php_opcache_max_accelerated_files: 4096
+php_max_input_vars: "4000"
+php_max_execution_time: "300"
+php_max_input_time: "300"
+php_upload_max_filesize: "200M"
+php_enable_php_fpm: true
+php_fpm_listen: "127.0.0.1:9000"
+php_date_timezone: "America/Denver"
+php_error_reporting: "E_ALL"
+
+# Drush options.
+drush_version: master
+drush_keep_updates: true
+drush_composer_cli_options: "--prefer-dist --no-interaction"

@@ -1,0 +1,9 @@
+name: 'drupaldev'
+description: "Default server for drupal development"
+
+# Vagrant options.
+vagrant_box: geerlingguy/ubuntu1604
+vagrant_hostname: drupaldev.local
+vagrant_ip: 192.168.50.5
+vagrant_memory: 4096
+vagrant_synced_folders: []

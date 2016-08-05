@@ -1,0 +1,62 @@
+---
+sites:
+  - name: arapahoe
+    deploy: true
+
+    # Drupal options.
+    drupal_install: true
+    drupal_major_version: 8
+    drupal_core_path: "/var/www/arapahoe/htdocs"
+    drupal_domain: "arapahoe.local"
+    drupal_site_name: "Arapahoe"
+    drupal_install_profile: standard
+    drupal_account_name: admin
+    drupal_account_pass: admin
+    drupal_mysql_user: drupal
+    drupal_mysql_password: drupal
+    drupal_mysql_database: drupal
+
+    drupal_files: 'sites/default/files'
+    drupal_settings:
+      - location: 'sites/default/settings.php'
+        template: 'd8.settings.php.erb'
+      - location: 'sites/default/settings.dev.php'
+        template: 'd8.dev.settings.php.erb'
+
+    # Drush options.
+    drush_sanitize: true
+    drush_enable_modules: ['devel', 'devel_generate']
+    drush_disable_modules: []
+
+    # Git repository options.
+    repository:
+      - host: bitbucket.org
+        uri: git@bitbucket.org:draenen/arapahoecc_d8.git
+        revision: master
+        remotes:
+          - upstream: git@bitbucket.org:monarchd/arapahoecc_d8.git
+
+# Synced folders.
+vagrant_synced_folders:
+  - local_path: "/home/draenen/workspace/monarch/arapahoe"
+    destination: "/var/www/arapahoe"
+    type: nfs
+    create: true
+
+# Apache Virtualhost.
+apache_vhosts:
+  - servername: "arapahoe.local"
+    documentroot: "/var/www/arapahoe/htdocs"
+    extra_parameters: |
+      ErrorLog /var/log/apache2/arapahoe-error.log
+
+# MySQL Database.
+mysql_databases:
+  - name: "arapahoe"
+    encoding: utf8
+    collation: utf8_general_ci
+mysql_users:
+  - name: "arapahoe"
+    host: "%"
+    password: "password"
+    priv: "arapahoe.*:ALL"

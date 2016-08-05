@@ -1,0 +1,13 @@
+{
+  "name": "draenen/drupaldev",
+  "type": "project",
+  "description": "Simple local Drupal development with Vagrant and Ansible.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Caleb Thorne",
+      "homepage": "https://www.calebthorne.com"
+    },
+  ],
+  "require": {}
+}
